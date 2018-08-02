@@ -13,9 +13,10 @@ echo "Checking if git-update.sh has been downloaded"
 if [ ! -f /opt/git-update/git-update.sh ]; then
   echo "File not found. Downloading script"
   if [ ! -d /opt/git-update/ ]; then
-    mkdir /opt/gitupdate/
+    mkdir /opt/git-update/
   fi
-  sudo git clone
+  cd /opt/git-update
+  sudo git clone https://github.com/clinch123/git-update.git
 else
 
 fi
