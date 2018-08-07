@@ -39,3 +39,14 @@ if [ ! -x /opt/git-update/git-update.sh ]; then
 fi
   
 #Check if ln exists between /opt/git-update/git-update.sh and /usr/local/bin/git-update
+echo "Checking for symbolic link to /usr/local/bin"
+if [ ! -L /usr/local/bin/git-update ]; then
+  sudo ln -s /opt/git-update/git-update.sh /usr/local/bin
+  if [ ! -L /usr/local/bin/git-update ]; then
+    echo "Unable to link file. Please troubleshoot further"
+    exit
+  fi
+  echo "git-update is linked. Finishing installation..."
+fi
+
+echo "Installation finished. Please use git-update command for any future requests"
